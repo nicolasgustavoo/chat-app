@@ -15,10 +15,11 @@ Scenario: Exclusão de mensagem para todos
 
 Scenario: Arquivo muito grande (Sad Path)
 	Given que eu estou em uma conversa e clico para anexar uma mídia
-When eu seleciono um arquivo de vídeo com tamanho superior a 64MB
-Then o sistema deve impedir o anexo And deve exibir um alerta dizendo "O arquivo excede o limite de 64MB
+	When eu seleciono um arquivo de vídeo com tamanho superior a 64MB
+	Then o sistema deve impedir o anexo And deve exibir um alerta dizendo "O arquivo excede o limite de 64MB
 
 Scenario: Busca por mensagens
 	Given que eu possuo um longo histórico de mensagens com a "Maria"
-When eu pesquiso pela palavra "endereço" na barra de busca da conversa
-Then a interface deve filtrar e destacar apenas as bolhas de mensagem que contêm a palavra "endereço"
+	When eu pesquiso pela palavra "endereço" na barra de busca da conversa
+	Then a interface deve filtrar e destacar apenas as bolhas de mensagem que contêm a palavra "endereço"
+	And a rolagem irá automaticamente para essa bolha de mensagem
