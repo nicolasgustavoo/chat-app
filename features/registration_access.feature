@@ -11,7 +11,7 @@ Feature: Gestão de Cadastro e Acesso
     And me redirecionar até a tela principal do chat
 
   Scenario: Login com credenciais válidas
-    Given que possuo uma conta cadastrada
+    Given que possuo uma conta registrada
     And estou na tela de login
     When eu informo meu e-mail e senha corretos
     And clico em "Entrar"
