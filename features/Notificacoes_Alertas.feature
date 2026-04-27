@@ -16,6 +16,7 @@ Feature: Notificações e Alertas
     When "Ana" abre a conversa com "João"
     Then o badge ao lado de "João" é removido
     And todas as mensagens de "João" ficam marcadas como lidas
+    And o ícone do app na barra de tarefas para de piscar 
 
   Scenario: Erro ao carregar notificações devido a falha de conexão
     Given que o usuário "Ana" está na tela "Lista de Conversas"
