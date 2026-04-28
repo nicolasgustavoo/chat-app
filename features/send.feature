@@ -4,7 +4,8 @@ Scenario: Envio de mensagem de texto com sucesso
     Given Eu estou na conversa com "João"
     When Eu mando a mensagem "Olá, João"
     Then A mensagem vai para uma fila no servidor
-    And A mensagem aparece na minha lista de mensagem
+    And A mensagem aparece no histórico da conversa
+    And Deve ser sinalizada com o status "Enviada"
 
 Scenario: Envio de mensagem de texto offline
     Given Estou na conversa com "João"
