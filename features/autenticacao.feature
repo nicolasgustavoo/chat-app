@@ -23,3 +23,10 @@ Feature: Autenticação de Usuários
     And exibir mensagem "Credenciais inválidas"
     And o sistema NÃO me mantém logado como "joao@email.com"
     And o usuário "joao@email.com" permanece com senha "Segura@123" inalterada
+
+    Scenario: Login com e-mail inexistente
+    Given o sistema não possui nenhum usuário cadastrado
+    When informo e-mail "fantasma@email.com" e senha "qualquer123"
+    And clico no botão "Entrar"
+    Then o sistema deve impedir o acesso
+    And exibir mensagem "Credenciais inválidas"

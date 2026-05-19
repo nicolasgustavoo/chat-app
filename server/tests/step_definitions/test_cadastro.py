@@ -144,3 +144,12 @@ def sistema_mantem_usuario_inalterado(client, context, nome_usuario, email):
         'senha': senha_original,
     })
     assert response.status_code == 200
+
+@scenario('registration_access.feature', 'Cadastro com senha menor que 6 caracteres')
+def test_cadastro_senha_curta():
+    pass
+
+
+@then('o sistema rejeita o cadastro com erro de validação')
+def sistema_rejeita_senha_curta(context):
+    assert context['response'].status_code == 422

@@ -106,3 +106,13 @@ def usuario_permanece_com_senha(client, email, senha):
         'senha': senha,
     })
     assert response.status_code == 200
+
+@scenario('autenticacao.feature', 'Login com e-mail inexistente')
+def test_login_email_inexistente():
+    pass
+
+
+@given('o sistema não possui nenhum usuário cadastrado')
+def sistema_sem_usuarios():
+    """Garantido pelo fixture setup_database que limpa o banco antes de cada teste."""
+    pass

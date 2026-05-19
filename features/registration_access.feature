@@ -26,3 +26,13 @@ Feature: Cadastro de Usuários
     Then o sistema exibe mensagem de alerta "E-mail já cadastrado"
     And eu continuo na tela "Cadastro de Usuário"
     And o sistema mantém o usuário "UsuarioExistente" com e-mail "existente@email.com" inalterado
+
+    Scenario: Cadastro com senha menor que 6 caracteres
+    Given estou na tela de cadastro
+    And o sistema não possui usuário com e-mail "joao@email.com"
+    When insiro e-mail "joao@email.com"
+    And insiro telefone "(88) 988888888"
+    And insiro nome de usuário "joaosilva"
+    And insiro senha "abc"
+    And clico no botão "Cadastre-se"
+    Then o sistema rejeita o cadastro com erro de validação
