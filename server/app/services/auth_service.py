@@ -26,13 +26,21 @@ class AuthService:
         self.repo = UserRepository(db)
 
     def cadastrar(self, data: UserRegisterRequest) -> dict:
+        """
+        Fluxo de cadastro:
+        1. Verifica se e-mail já existe → 409 se existir
+        2. Verifica se usuario já existe → 409 se existir
+        3. Gera o hash da senha (nunca salva a senha pura)
+        4. Persiste a pessoa no banco
+        5. Retorna mensagem de sucesso
+        """
         if self.repo.find_by_email(data.email):
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT,
                 detail="E-mail já cadastrado",
             )
 
-        if self.repo.find_by_nome_usuario(data.usuario):
+        if self.repo.find_by_usuario(data.usuario):
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT,
                 detail="Nome de usuário já cadastrado",
