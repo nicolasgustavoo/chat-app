@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { cadastrar } from '../services/api'
+import FormCard from '../components/FormCard'
 
 export default function Cadastro() {
   const navigate = useNavigate()
@@ -74,9 +75,7 @@ export default function Cadastro() {
 
   return (
     <div className="min-h-screen bg-[#06065D] flex items-center justify-center p-6">
-      <div className="bg-white rounded-3xl p-8 w-full max-w-sm shadow-xl">
-        <h2 className="text-center text-2xl font-bold text-[#06065D] mb-6">Cadastro</h2>
-
+      <FormCard titulo="Cadastro">
         <input
           data-cy="input-email"
           name="email"
@@ -135,7 +134,7 @@ export default function Cadastro() {
             Entrar
           </button>
         </p>
-      </div>
+      </FormCard>
     </div>
   )
 }

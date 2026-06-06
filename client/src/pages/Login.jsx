@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../services/api'
+import FormCard from '../components/FormCard'
 
 export default function Login({ embedded = false }) {
   const navigate = useNavigate()
@@ -34,9 +35,7 @@ export default function Login({ embedded = false }) {
   }
 
   const card = (
-    <div className="bg-white rounded-3xl p-8 w-full max-w-sm shadow-xl">
-      <h2 className="text-center text-2xl font-bold text-[#06065D] mb-6">Login</h2>
-
+    <FormCard titulo="Login">
       <input
         data-cy="input-email"
         name="email"
@@ -74,7 +73,7 @@ export default function Login({ embedded = false }) {
           Criar conta
         </button>
       </p>
-    </div>
+    </FormCard>
   )
 
   if (embedded) return card
